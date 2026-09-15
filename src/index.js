@@ -5,6 +5,10 @@ import express from "express";
 import userRoutes from "./routes/userRoutes.js";
 import mongoose from "mongoose"
 import dotenv from "dotenv"
+import cookieParser from "cookie-parser"
+import cors from "cors"
+
+
 
 dotenv.config()
 
@@ -18,8 +22,15 @@ mongoose.connect(process.env.MONGODB_URI_2).then((result) => {
         console.log(error)
     })
 
+    app.use(cors({
+        origin: "http://localhost:5174",
+        credentials: true,
+        methods: ["GET", "POST", "DELETE"]
+    }))
+
 
     app.use(express.json())
+    app.use(cookieParser())
 
 app.use("/api", userRoutes)
 
@@ -27,6 +38,10 @@ app.get("/", (req, res) => {
     res.send("Hello World")
 })
 
-app.listen(8080, () => {
-    console.log("Server is running on port 8080")
-})
+if(process.env.NODE_ENV !== "production") {
+    app.listen(8080, () => {
+        console.log("Server is running on port http://localhost:8080")
+    })
+}
+
+export default app; 
