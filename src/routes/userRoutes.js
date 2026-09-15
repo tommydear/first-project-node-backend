@@ -5,7 +5,7 @@ import { checkAuthentication } from "../middleware/authMiddleware.js";
 const router = Router()
 
 router.get("/about", About)
-router.post("/sigup", postUser)
+router.post("/signup", postUser)
 router.post("/login", login)
 router.get("/logout", checkAuthentication, logout)
 router.get("/profile", checkAuthentication, getProfile)
