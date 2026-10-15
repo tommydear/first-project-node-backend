@@ -27,7 +27,7 @@ export const postUser = async(req, res) => {
         if(existingUser) {
             return res.status(400).send({message: "User already exists"})
         }
-        const newUser = new userModel({username, email, password})
+        const newUser = new userModel({fullName, email, phone, password})
         await newUser.save()
 
 
