@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGODB_URI_2).then((result) => {
 
     app.use(express.json())
     app.use(cookieParser())
-
+ 
 app.use("/api", userRoutes)
 
 app.get("/", (req, res) => {

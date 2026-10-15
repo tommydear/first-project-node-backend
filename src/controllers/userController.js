@@ -12,7 +12,7 @@ export const About = (req, res) => {
 export const postUser = async(req, res) => {
     try {
         
-        const {username, email, password} = req.body
+        const { fullName, email, phone, password} = req.body
 
         const {error} = signupValidate.validate(req.body)
 
