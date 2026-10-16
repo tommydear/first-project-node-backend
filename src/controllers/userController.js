@@ -44,8 +44,9 @@ export const postUser = async(req, res) => {
     } catch(err){
         if(err instanceof Error) {
             console.log(err.message, err.name)
-            throw new Error(err.message)
+            return res.status(500).json({ message: err.message })
         }
+        return res.status(500).json({ message: "Internal Server Error" })
     }
     
 }

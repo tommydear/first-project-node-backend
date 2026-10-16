@@ -3,11 +3,9 @@ import bcrypt from "bcryptjs";
 
 
 const userSchema = new mongoose.Schema({
-    username: {
+    fullName: {
         type: String,
         required: true,
-        minlength: 3,
-        maxlength: 20,
         trim: true
     },
     email: {
@@ -16,12 +14,15 @@ const userSchema = new mongoose.Schema({
         trim: true,
         unique: true
     },
+    phone: {
+        type: String,
+        required: true,
+        trim: true
+    },
     password: {
         type: String,
         required: true,
-        minlength: 8,
-        maxlength: 16,
-        
+        minlength: 8
     }
 }, { timestamps : true })
 

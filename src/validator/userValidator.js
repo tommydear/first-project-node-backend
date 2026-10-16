@@ -1,8 +1,9 @@
 import Joi from "joi";
 
 export const signupValidate = Joi.object({
-    username: Joi.string().min(3).max(20).required(),
+    fullName: Joi.string().min(3).max(50).required(),
     email: Joi.string().email().required(),
+    phone: Joi.string().min(7).max(20).required(),
     password: Joi.string().min(8).max(16).required()
 })
 
