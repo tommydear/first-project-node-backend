@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI_2).then((result) => {
     })
 
     app.use(cors({
-        origin: "http://localhost:5174",
+        origin: "https://adwealt.vercel.app",
         credentials: true,
         methods: ["GET", "POST", "DELETE"]
     }))
